@@ -1,0 +1,354 @@
+/* --- SISTEM TEMA DINAMIS --- */
+:root {
+    --theme-main: #d80000;
+    --theme-bg: #111111;
+    --theme-text: #f4f4f0;
+    --theme-panel: rgba(17, 17, 17, 0.95);
+    --theme-accent: #00ffcc;
+    --scanline-op: 0.3;
+}
+
+body[data-theme="theme-cyber"] {
+    --theme-main: #d80000; 
+    --theme-bg: #111111;
+    --theme-text: #f4f4f0;
+    --theme-panel: rgba(17, 17, 17, 0.95);
+    --scanline-op: 0.3;
+}
+
+body[data-theme="theme-3d"] {
+    --theme-main: #ea7200; 
+    --theme-bg: #2b2b2b;
+    --theme-text: #e0e0e0;
+    --theme-panel: rgba(43, 43, 43, 0.95);
+    --scanline-op: 0.05; 
+}
+
+body[data-theme="theme-light"] {
+    --theme-main: #333333; 
+    --theme-bg: #e6e6e6;
+    --theme-text: #1a1a1a;
+    --theme-panel: rgba(245, 245, 245, 0.95);
+    --scanline-op: 0; 
+}
+
+/* --- DASAR --- */
+body {
+    margin: 0; height: 100vh; overflow: hidden;
+    background-color: var(--theme-bg); 
+    font-family: 'Anton', sans-serif;
+    color: var(--theme-text); 
+    cursor: none;
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.bg-pattern {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('gambar/background.jpg');
+    background-size: cover; background-position: center; z-index: -2;
+    transition: opacity 0.6s ease;
+}
+
+body[data-theme="theme-light"] .bg-pattern { opacity: 0; }
+
+.scanline {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,var(--scanline-op)) 50%);
+    background-size: 100% 4px; z-index: -1; pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+
+/* =========================================
+   CUSTOM CURSOR (SUPER Z-INDEX FIX)
+   ========================================= */
+.cursor-dot { 
+    width: 8px; height: 8px; 
+    background: var(--theme-text); 
+    position: fixed; border-radius: 50%; 
+    pointer-events: none !important; 
+    z-index: 9999999 !important; 
+    transition: background 0.3s; 
+}
+.cursor-outline { 
+    width: 40px; height: 40px; 
+    border: 2px solid var(--theme-main); 
+    position: fixed; 
+    pointer-events: none !important; 
+    z-index: 9999998 !important; 
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); 
+    transition: width 0.2s, height 0.2s, border-color 0.6s; 
+}
+
+/* PENJAGA KURSOR ANTI HILANG & ANTI OVERRIDE BROWSER */
+* {
+    cursor: none !important;
+}
+
+.lightbox-close, .lightbox, .ctrl-btn, .progress-bar-container,
+.cyber-player-wrapper, .lightbox-video, .cyber-controls, .uiux-card, .uiux-btn, .chip-btn,
+.video-edit-card, .poster-card, .vedit-preview, .catalog-card {
+    cursor: none !important;
+}
+
+/* Dashboard Utama & Foto Profil */
+.dashboard { display: flex; justify-content: center; align-items: center; gap: 80px; height: 100vh; width: 100vw; transition: transform 0.6s ease, opacity 0.6s ease; }
+.dashboard.hidden { transform: scale(0.8); opacity: 0; pointer-events: none; }
+
+.profile-card { width: 350px; background: var(--theme-text); color: var(--theme-bg); padding: 20px; clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%); border-bottom: 5px solid var(--theme-main); border-right: 5px solid var(--theme-main); cursor: none; transition: all 0.6s; }
+.profile-img { overflow: hidden; border-bottom: 2px solid var(--theme-main); }
+.profile-photo { width: 100%; height: 300px; object-fit: cover; object-position: center top; border: 2px solid var(--theme-bg); box-sizing: border-box; filter: grayscale(30%) contrast(1.15); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); display: block; }
+.profile-card:hover .profile-photo { filter: grayscale(0%) contrast(1); transform: scale(1.03); }
+
+.name-tag { font-size: 3rem; margin: 15px 0 0 0; line-height: 1; }
+.role { font-family: monospace; color: var(--theme-main); font-weight: bold; margin-bottom: 20px; transition: color 0.6s; }
+.sys-stats { display: flex; gap: 10px; }
+.stat-box { background: var(--theme-bg); color: var(--theme-accent); padding: 5px 10px; font-family: monospace; font-size: 0.9rem; transition: background 0.6s; }
+
+.menu-container { display: flex; flex-direction: column; gap: 25px; }
+.cyber-btn { font-size: 3rem; padding: 15px 40px; background: transparent; color: var(--theme-text); border: 2px solid var(--theme-text); transform: skew(-10deg); transition: all 0.4s ease; position: relative; overflow: hidden; cursor: none; }
+.cyber-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--theme-main); transition: left 0.4s ease; z-index: -1; }
+.cyber-btn:hover { color: var(--theme-bg); border-color: var(--theme-main); padding-left: 60px; }
+.cyber-btn:hover::before { left: 0; }
+.btn-num { color: var(--theme-main); margin-right: 15px; transition: color 0.6s; }
+.cyber-btn:hover .btn-num { color: var(--theme-text); }
+
+/* --- PANEL KONTEN --- */
+.content-panel {
+    position: fixed; top: 50%; left: 50%; width: 90vw; height: 90vh; 
+    background: var(--theme-panel); border: 2px solid var(--theme-main);
+    transform: translate(-50%, -50%) scale(0.7); opacity: 0; pointer-events: none;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, background-color 0.6s, border-color 0.6s;
+    z-index: 50; display: flex; flex-direction: column; will-change: transform, opacity;
+}
+.content-panel.active { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%) scale(1); clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%); }
+
+.close-btn { align-self: flex-end; margin: 20px 20px 0 0; font-family: monospace; background: transparent; color: var(--theme-text); border: none; font-size: 1.2rem; cursor: none; transition: color 0.3s; }
+.close-btn:hover { color: var(--theme-main); }
+.panel-inner { padding: 20px 40px; height: 100%; box-sizing: border-box; }
+.panel-inner h2 { font-size: 3rem; color: var(--theme-main); margin-top: 0; margin-bottom: 20px; transition: color 0.6s; }
+.cyber-content { font-family: monospace; font-size: 1.2rem; line-height: 1.6; color: var(--theme-text); }
+
+/* --- PORTFOLIO LAYOUT --- */
+.portfolio-layout { display: flex; gap: 30px; padding-bottom: 40px; height: calc(100% - 70px); }
+
+.category-sidebar { 
+    width: 250px; 
+    display: flex; flex-direction: column; gap: 5px; 
+    border-right: 2px solid var(--theme-text); 
+    padding-right: 15px; 
+    overflow-y: auto; 
+    height: 100%; 
+    transition: border-color 0.6s; 
+}
+.sidebar-title { color: var(--theme-main); font-size: 1.5rem; margin-bottom: 10px; transition: color 0.6s; }
+.cat-btn { background: transparent; border: 1px solid transparent; color: gray; text-align: left; padding: 10px 15px; font-family: monospace; font-size: 1.1rem; cursor: none; transition: all 0.3s ease; transform: skew(-5deg); }
+.cat-btn:hover { color: var(--theme-text); border-left: 2px solid var(--theme-text); padding-left: 20px; }
+.cat-btn.active { color: var(--theme-text); border-left: 4px solid var(--theme-main); background: rgba(128, 128, 128, 0.1); padding-left: 25px; font-weight: bold; }
+
+.category-content { flex-grow: 1; position: relative; height: 100%; width: 100%; overflow: hidden; }
+
+/* 1. GALERI DEFAULT (OPTIMASI ANTI-LAG TANPA MENGUBAH EFEK) */
+.gallery-grid { 
+    display: none; 
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 20px; 
+    height: 100%; 
+    overflow-y: auto; 
+    padding-right: 15px; 
+    align-content: start; 
+    animation: fadeInTab 0.4s ease forwards;
+    content-visibility: auto; /* Mencegah lag saat ganti tab */
+    contain-intrinsic-size: 800px;
+}
+.gallery-grid.active-grid { display: grid; } 
+
+@keyframes fadeInTab { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.category-sidebar::-webkit-scrollbar, .gallery-grid::-webkit-scrollbar { width: 5px; }
+.category-sidebar::-webkit-scrollbar-thumb, .gallery-grid::-webkit-scrollbar-thumb { background: var(--theme-main); transition: background 0.6s; }
+
+.gallery-item { position: relative; height: 220px; border: 2px solid var(--theme-main); overflow: hidden; cursor: none; background: var(--theme-bg); transform: skew(-2deg); transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.2); transition: transform 0.4s ease, filter 0.4s ease; }
+.gallery-item:hover { transform: skew(0deg) scale(1.03); z-index: 10; box-shadow: 0 5px 15px rgba(0,0,0,0.5); border-color: var(--theme-text); }
+.gallery-item:hover img { filter: grayscale(0%) contrast(1); transform: scale(1.1); }
+
+.img-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: var(--theme-panel); color: var(--theme-text); font-family: monospace; font-size: 0.85rem; padding: 8px 10px; transform: translateY(100%); transition: transform 0.3s ease; border-top: 1px solid var(--theme-main); box-sizing: border-box; }
+.gallery-item:hover .img-overlay { transform: translateY(0); }
+
+/* 2. COPYWRITING TAB */
+#cat-copy { display: none; grid-template-columns: 1fr; max-width: 850px; margin: 0 auto; height: 100%; overflow-y: auto; padding-right: 15px; align-content: start; gap: 30px; }
+#cat-copy.active-grid { display: grid; }
+
+.copy-card { background: #fdfdfd; border: 2px solid var(--theme-main); padding: 30px; border-radius: 6px; color: #111; display: flex; flex-direction: column; gap: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: none; text-align: left; }
+.copy-card:hover { transform: translateY(-5px); box-shadow: 6px 6px 0px var(--theme-main); }
+.copy-client { font-family: monospace; font-size: 0.9rem; font-weight: bold; color: #666; border-bottom: 2px dashed #ccc; padding-bottom: 8px; letter-spacing: 1px; }
+.copy-headline { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 2.2rem; color: #111; margin: 0; line-height: 1.1; letter-spacing: 1px; }
+.copy-subhead, .copy-body-text { font-family: 'Segoe UI', Arial, sans-serif !important; text-transform: none !important; color: #333; }
+.copy-subhead { font-size: 1.1rem; font-weight: 600; margin: 0; line-height: 1.5; }
+.copy-body-text { font-size: 1rem; line-height: 1.6; }
+.copy-body-text p { margin: 0 0 15px 0; }
+.copy-body-text ul { padding-left: 20px; margin: 0 0 15px 0; }
+.copy-body-text li { margin-bottom: 8px; }
+.copy-cta-box { background: rgba(0, 0, 0, 0.04); padding: 15px 20px; border-left: 4px solid var(--theme-main); font-family: monospace; font-size: 0.95rem; color: #111; border-radius: 0 4px 4px 0; }
+.mt-2 { margin-top: 10px; }
+
+/* 3. FEED_IG TAB */
+#cat-feed { display: none; }
+#cat-feed.active-grid { display: flex !important; justify-content: center; align-items: center; height: 100%; width: 100%; overflow: hidden; grid-template-columns: none; }
+.coverflow-wrapper { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+.coverflow-track { position: relative; width: 320px; height: 420px; perspective: 1000px; transform-style: preserve-3d; }
+.cf-item { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.5); cursor: none; border: 2px solid transparent; background: transparent; }
+.cf-item img { width: 100%; height: 100%; object-fit: contain; border-radius: 10px; background: #1a1a1a; }
+.cf-item.active { border-color: var(--theme-main); box-shadow: 0 20px 50px rgba(216, 0, 0, 0.6); }
+.cf-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(30, 30, 30, 0.8); color: #fff; border: 2px solid #555; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: none; z-index: 999; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; }
+.cf-btn:hover { background: var(--theme-main); border-color: var(--theme-text); transform: translateY(-50%) scale(1.1); }
+.prev-btn { left: 5%; }
+.next-btn { right: 5%; }
+
+/* 4. KHUSUS TAB ILUSTRASI */
+#cat-ilustrasi.active-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; height: 100%; align-content: start; padding-right: 15px; overflow-y: auto; }
+#cat-ilustrasi .gallery-item { transform: none; height: 250px; border: 1px solid var(--theme-main); border-radius: 4px; overflow: hidden; background: #050505; position: relative; box-shadow: none; transition: all 0.3s ease; }
+#cat-ilustrasi .gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.2) brightness(0.6); transition: filter 0.3s ease; }
+#cat-ilustrasi .gallery-item:hover { border-color: var(--theme-accent); box-shadow: 0 0 15px var(--theme-accent), inset 0 0 10px var(--theme-accent); z-index: 10; }
+#cat-ilustrasi .gallery-item:hover img { animation: cyberGlitch 0.35s cubic-bezier(.25, .46, .45, .94) forwards; }
+
+@keyframes cyberGlitch {
+    0%   { transform: translate(0) scale(1); filter: grayscale(100%); }
+    20%  { transform: translate(-4px, 2px) scale(1.05); filter: contrast(200%) drop-shadow(3px 0px 0px red) drop-shadow(-3px 0px 0px cyan); }
+    40%  { transform: translate(4px, -2px) scale(1.05); filter: contrast(200%) drop-shadow(3px 0px 0px cyan) drop-shadow(-3px 0px 0px red); }
+    60%  { transform: translate(-2px, -4px) scale(1.05); filter: hue-rotate(90deg); }
+    80%  { transform: translate(2px, 4px) scale(1.05); filter: invert(20%); }
+    100% { transform: translate(0) scale(1.05); filter: grayscale(0%) contrast(1.1) brightness(1.1); }
+}
+#cat-ilustrasi .img-overlay { background: rgba(0, 255, 204, 0.15); color: var(--theme-accent); border-top: 1px solid var(--theme-accent); backdrop-filter: blur(3px); text-shadow: 0 0 5px var(--theme-accent); text-align: center; font-size: 0.9rem; }
+
+/* 5. LIGHTBOX SYSTEM & CYBER PLAYER */
+.lightbox { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); z-index: 99999; display: flex !important; flex-direction: column; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.lightbox.active { opacity: 1; pointer-events: auto; }
+.lightbox-img { max-width: 85vw; max-height: 85vh; object-fit: contain; border: 3px solid var(--theme-main); box-shadow: 0 0 40px rgba(0,0,0,0.8); transform: scale(0.8); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s; display: none; }
+.lightbox.active .lightbox-img { transform: scale(1); }
+.lightbox-close { position: absolute; top: 30px; right: 40px; color: #fff; font-family: monospace; font-size: 1.2rem; cursor: none; transition: color 0.3s; z-index: 100000; }
+.lightbox-close:hover { color: var(--theme-main); }
+
+.cyber-player-wrapper { display: none; flex-direction: column; align-items: center; max-width: 85vw; max-height: 85vh; position: relative; }
+.lightbox.active .cyber-player-wrapper { display: flex; animation: zoomInPlayer 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+@keyframes zoomInPlayer { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.cyber-player-wrapper .lightbox-video { display: block !important; max-width: 85vw; max-height: 75vh; border: 3px solid var(--theme-main); box-shadow: 0 0 30px rgba(0,0,0,0.9); background: #000; }
+.cyber-controls { width: 100%; background: rgba(10, 10, 10, 0.95); border: 2px solid var(--theme-main); border-top: none; padding: 12px 20px; box-sizing: border-box; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.8), inset 0 0 15px rgba(216, 0, 0, 0.2); }
+.ctrl-btn { background: transparent; color: var(--theme-text); border: 1px solid var(--theme-text); font-family: monospace; font-size: 0.9rem; padding: 6px 12px; cursor: none; transition: all 0.3s ease; white-space: nowrap; }
+.ctrl-btn:hover { background: var(--theme-main); color: var(--theme-bg); border-color: var(--theme-main); box-shadow: 0 0 10px var(--theme-main); }
+.progress-bar-container { flex-grow: 1; height: 10px; background: #222; border: 1px solid #555; position: relative; cursor: none; overflow: hidden; }
+.progress-bar-fill { width: 0%; height: 100%; background: var(--theme-accent); box-shadow: 0 0 10px var(--theme-accent); transition: width 0.1s linear; }
+.ctrl-time { font-family: monospace; color: var(--theme-accent); font-size: 0.9rem; letter-spacing: 1px; }
+
+/* 6. KHUSUS TAB LOGO */
+#cat-logo.active-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; padding-right: 15px; align-content: start; }
+#cat-logo .gallery-item { height: 220px; background: rgba(0, 0, 0, 0.4); border: 2px dashed #444; transform: none; display: flex; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; overflow: hidden; }
+#cat-logo .gallery-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 15px 15px; z-index: 0; }
+#cat-logo .gallery-item img { max-width: 85%; max-height: 85%; object-fit: contain; filter: drop-shadow(0 0 0px transparent); z-index: 1; transition: all 0.4s ease; }
+#cat-logo .gallery-item:hover { border-color: var(--theme-accent); border-style: solid; background: rgba(0, 20, 20, 0.8); transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.5), inset 0 0 20px rgba(0, 255, 204, 0.15); }
+#cat-logo .gallery-item:hover img { filter: drop-shadow(0 0 12px var(--theme-main)); transform: scale(1.15); }
+.logo-scanner { position: absolute; top: -20px; left: 0; width: 100%; height: 3px; background: var(--theme-accent); box-shadow: 0 0 15px var(--theme-accent); opacity: 0; z-index: 2; }
+#cat-logo .gallery-item:hover .logo-scanner { opacity: 1; animation: scanLogo 2s linear infinite; }
+
+@keyframes scanLogo { 0% { top: -10%; } 50% { top: 110%; } 100% { top: 110%; } }
+#cat-logo .img-overlay { background: transparent; border: none; color: #666; font-size: 0.75rem; letter-spacing: 2px; bottom: 8px; transform: translateY(0); text-align: center; z-index: 3; transition: color 0.3s; }
+#cat-logo .gallery-item:hover .img-overlay { color: var(--theme-accent); text-shadow: 0 0 5px var(--theme-accent); }
+
+/* 7. KHUSUS TAB VIDEO ANIMATION */
+#cat-animation.active-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding-right: 15px; align-content: start; }
+.video-card { height: 200px; border: 2px solid #333; border-radius: 6px; overflow: hidden; position: relative; background: #050505; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; cursor: none; }
+.video-card video { width: 100%; height: 100%; object-fit: cover; filter: grayscale(70%) brightness(0.6); transition: filter 0.4s ease, transform 0.4s ease; }
+.video-card:hover { border-color: var(--theme-accent); box-shadow: 0 0 20px rgba(0, 255, 204, 0.3), inset 0 0 10px rgba(0, 255, 204, 0.2); transform: translateY(-5px) scale(1.03); z-index: 10; }
+.video-card:hover video { filter: grayscale(0%) brightness(1.1); transform: scale(1.05); }
+.video-card .vid-status { position: absolute; top: 15px; left: 15px; bottom: auto; background: rgba(0, 0, 0, 0.85); color: var(--theme-accent); padding: 4px 10px; font-family: monospace; font-size: 0.8rem; border-left: 3px solid var(--theme-accent); opacity: 0; transform: translateX(-10px); transition: all 0.4s ease; backdrop-filter: blur(2px); z-index: 5; }
+.video-card:hover .vid-status { opacity: 1; transform: translateX(0); }
+
+/* 8. KHUSUS TAB PHOTOGRAPHY */
+#cat-photo.active-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 25px; padding-right: 15px; align-content: start; }
+#cat-photo .gallery-item { height: 320px; background: #f5f5f5; border: 1px solid #444; transform: none; border-radius: 2px; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+#cat-photo .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(30%) contrast(1.1); transition: filter 0.4s ease, transform 0.4s ease; }
+#cat-photo .gallery-item::before, #cat-photo .gallery-item::after { content: ''; position: absolute; width: 25px; height: 25px; border: 3px solid var(--theme-accent); opacity: 0; transition: all 0.3s ease; z-index: 5; pointer-events: none; }
+#cat-photo .gallery-item::before { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+#cat-photo .gallery-item::after { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+#cat-photo .gallery-item:hover { border-color: var(--theme-accent); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.8), 0 0 15px rgba(0, 255, 204, 0.2); }
+#cat-photo .gallery-item:hover img { filter: grayscale(0%) contrast(1); transform: scale(1.05); }
+#cat-photo .gallery-item:hover::before, #cat-photo .gallery-item:hover::after { opacity: 1; width: 35px; height: 35px; }
+#cat-photo .img-overlay { background: rgba(0, 0, 0, 0.85); color: var(--theme-accent); border-top: 1px solid var(--theme-accent); font-size: 0.75rem; text-align: center; letter-spacing: 1px; backdrop-filter: blur(2px); }
+
+/* 9. KHUSUS TAB AI VIDEO */
+#cat-aivideo.active-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 25px; padding-right: 15px; align-content: start; }
+.ai-video-card { width: 100%; aspect-ratio: 9 / 16; max-height: 440px; border: 2px solid #333; border-radius: 10px; overflow: hidden; background: #050505; position: relative; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; cursor: none; box-shadow: 0 5px 15px rgba(0,0,0,0.6); isolation: isolate; }
+.ai-video-card video { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(70%) brightness(0.65); transition: filter 0.4s ease, transform 0.4s ease; }
+.ai-video-card:hover { border-color: var(--theme-accent); box-shadow: 0 0 25px rgba(0, 255, 204, 0.35), inset 0 0 10px rgba(0, 255, 204, 0.15); transform: translateY(-6px); z-index: 10; }
+.ai-video-card:hover video { filter: grayscale(0%) brightness(1.05); transform: scale(1.04); }
+.ai-video-card .vid-status { position: absolute; top: auto !important; bottom: 15px; left: 50%; transform: translateX(-50%) translateY(20px); background: rgba(5, 5, 5, 0.9); color: var(--theme-accent); padding: 6px 16px; font-family: monospace; font-size: 0.85rem; border: 1px solid var(--theme-accent); border-radius: 20px; opacity: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; white-space: nowrap; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.8); backdrop-filter: blur(4px); }
+.ai-video-card:hover .vid-status { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* 10. KHUSUS TAB UI / UX DESIGN (CASE STUDY DECK) */
+#cat-uiux.active-grid { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; padding-right: 15px; align-content: start; }
+.uiux-card { background: var(--theme-bg); border: 2px solid var(--theme-main); border-radius: 8px; overflow: hidden; position: relative; display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.6); cursor: none; }
+.uiux-card:hover { transform: translateY(-6px); box-shadow: 6px 6px 0px var(--theme-main); border-color: var(--theme-accent); z-index: 5; }
+.uiux-badge { background: var(--theme-main); color: var(--theme-bg); font-family: monospace; font-size: 0.85rem; font-weight: bold; padding: 8px 15px; letter-spacing: 1px; border-bottom: 2px solid var(--theme-text); transition: all 0.3s ease; }
+.uiux-card:hover .uiux-badge { background: var(--theme-accent); color: #000; }
+.uiux-content { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
+.uiux-title { font-family: 'Anton', sans-serif; font-size: 2rem; color: var(--theme-text); margin: 0 0 5px 0; letter-spacing: 1px; line-height: 1.1; }
+.uiux-subtitle { font-family: 'Segoe UI', Arial, sans-serif !important; font-size: 0.95rem; font-weight: 600; color: var(--theme-main); margin: 0 0 15px 0; transition: color 0.3s ease; }
+.uiux-card:hover .uiux-subtitle { color: var(--theme-accent); }
+.uiux-desc { font-family: 'Segoe UI', Arial, sans-serif !important; font-size: 0.95rem; line-height: 1.6; color: var(--theme-text); opacity: 0.85; margin: 0 0 20px 0; flex-grow: 1; }
+.uiux-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.uiux-tags span { background: rgba(128, 128, 128, 0.15); color: var(--theme-text); font-family: monospace; font-size: 0.8rem; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(128, 128, 128, 0.3); }
+.uiux-actions { display: flex; gap: 12px; flex-wrap: wrap; border-top: 1px dashed rgba(128, 128, 128, 0.4); padding-top: 18px; }
+.uiux-btn { flex: 1; min-width: 140px; background: transparent; color: var(--theme-text); border: 1px solid var(--theme-text); padding: 10px 12px; font-family: monospace; font-size: 0.85rem; font-weight: bold; text-align: center; text-decoration: none; cursor: none; transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; gap: 6px; }
+.btn-live { border-color: var(--theme-main); color: var(--theme-main); }
+.uiux-btn:hover { background: var(--theme-text); color: var(--theme-bg); box-shadow: 0 0 12px rgba(255, 255, 255, 0.3); transform: scale(1.03); }
+.btn-live:hover { background: var(--theme-main); color: var(--theme-bg); border-color: var(--theme-main); box-shadow: 0 0 12px var(--theme-main); }
+.uiux-subactions { margin-top: 15px; padding-top: 12px; border-top: 1px dotted rgba(128, 128, 128, 0.3); display: flex; flex-direction: column; gap: 8px; }
+.sub-label { font-family: monospace; font-size: 0.75rem; color: var(--theme-main); letter-spacing: 1px; transition: color 0.3s; }
+.uiux-card:hover .sub-label { color: var(--theme-accent); }
+.chip-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip-btn { background: transparent; color: var(--theme-text); border: 1px solid rgba(128, 128, 128, 0.5); padding: 5px 10px; font-family: monospace; font-size: 0.75rem; border-radius: 3px; cursor: none; transition: all 0.25s ease; }
+.chip-btn:hover { background: var(--theme-main); color: var(--theme-bg); border-color: var(--theme-main); box-shadow: 0 0 8px var(--theme-main); transform: translateY(-2px); }
+
+/* 11. KHUSUS TAB VIDEO EDITING (CYBER TIMELINE CARDS) */
+#cat-video.active-grid { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; padding-right: 15px; align-content: start; }
+.video-edit-card { background: var(--theme-bg); border: 2px solid var(--theme-main); border-radius: 8px; overflow: hidden; position: relative; display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.6); cursor: none; }
+.video-edit-card:hover { transform: translateY(-6px); box-shadow: 0 0 25px rgba(216, 0, 0, 0.4), inset 0 0 10px rgba(0, 255, 204, 0.1); border-color: var(--theme-accent); z-index: 5; }
+.vedit-header { display: flex; justify-content: space-between; align-items: center; background: var(--theme-main); color: var(--theme-bg); padding: 8px 15px; font-family: monospace; font-size: 0.85rem; font-weight: bold; border-bottom: 2px solid var(--theme-text); transition: background 0.3s ease; }
+.video-edit-card:hover .vedit-header { background: var(--theme-accent); color: #000; }
+.vedit-preview { width: 100%; height: 200px; background: #000; position: relative; overflow: hidden; border-bottom: 1px solid rgba(128, 128, 128, 0.3); }
+.vedit-preview.vertical-mode { height: 320px; }
+.vedit-preview video { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%) contrast(1.1); transition: filter 0.4s ease, transform 0.4s ease; }
+.video-edit-card:hover .vedit-preview video { filter: grayscale(0%) contrast(1); transform: scale(1.05); }
+.vedit-play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); background: rgba(0, 0, 0, 0.75); color: var(--theme-accent); border: 2px solid var(--theme-accent); padding: 10px 20px; font-family: monospace; font-size: 0.9rem; border-radius: 30px; opacity: 0; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; box-shadow: 0 0 15px var(--theme-accent); backdrop-filter: blur(4px); }
+.video-edit-card:hover .vedit-play-overlay { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+/* 12. KHUSUS TAB POSTER GALLERY (EXHIBITION FRAME - ANTI-LAG OPTIMIZED) */
+#cat-poster.active-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 30px; padding-right: 15px; align-content: start; }
+.poster-card { background: #fff; border: 2px solid var(--theme-main); padding: 15px; border-radius: 4px; display: flex; flex-direction: column; gap: 12px; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.15); cursor: none; }
+.poster-card:hover { transform: translateY(-6px) rotate(1deg); box-shadow: 8px 8px 0px var(--theme-main); border-color: #111; z-index: 10; }
+.poster-frame { width: 100%; aspect-ratio: 3 / 4; background: #111; overflow: hidden; border: 1px solid #ddd; position: relative; }
+.poster-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.poster-card:hover .poster-frame img { transform: scale(1.06); }
+.poster-info { text-align: left; color: #111; }
+.poster-title { font-family: 'Anton', sans-serif; font-size: 1.4rem; margin: 0; line-height: 1.1; letter-spacing: 0.5px; color: #111; }
+.poster-meta { font-family: monospace; font-size: 0.8rem; color: #666; margin-top: 4px; display: flex; justify-content: space-between; border-top: 1px dashed #ccc; padding-top: 6px; }
+
+/* =========================================
+   13. KHUSUS TAB KATALOG & LOOKBOOK (ANTI-LAG OPTIMIZED)
+   ========================================= */
+#cat-katalog.active-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding-right: 15px; align-content: start; }
+.catalog-card { background: #fff; border: 2px solid var(--theme-main); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: none; position: relative; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.catalog-card:hover { transform: translateY(-6px); box-shadow: 6px 6px 0px var(--theme-main); border-color: #111; z-index: 10; }
+.catalog-badge { background: #111; color: #fff; font-family: monospace; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; letter-spacing: 1px; border-bottom: 2px solid var(--theme-main); display: flex; justify-content: space-between; align-items: center; transition: background-color 0.3s ease; }
+.catalog-card:hover .catalog-badge { background-color: var(--theme-main); color: #fff; }
+.catalog-frame { width: 100%; height: 320px; background: #f0f0f0; overflow: hidden; position: relative; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid #eee; }
+.catalog-frame.landscape-mode { height: 220px; }
+.catalog-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.4s ease; }
+.catalog-card:hover .catalog-frame img { transform: scale(1.06); }
+.catalog-info { padding: 16px 18px; text-align: left; display: flex; flex-direction: column; gap: 6px; flex-grow: 1; background: #fff; }
+.catalog-title { font-family: 'Anton', sans-serif; font-size: 1.4rem; color: #111; margin: 0; line-height: 1.1; letter-spacing: 0.5px; }
+.catalog-desc { font-family: 'Segoe UI', Arial, sans-serif !important; font-size: 0.85rem; color: #555; margin: 0; line-height: 1.4; }
+.catalog-meta { font-family: monospace; font-size: 0.75rem; color: #888; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ccc; display: flex; justify-content: space-between; align-items: center; }

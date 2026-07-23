@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO_DB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="theme-cyber">
+    <div class="bg-pattern"></div>
+    <div class="scanline"></div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div class="dashboard" id="main-dashboard">
+        <div class="profile-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+            <div class="profile-img">
+                <img src="gambar/BGS01666.JPG" alt="Arnanda Profile" class="profile-photo">
+            </div>
+            <div class="profile-info">
+                <h1 class="name-tag">ARNANDA FATURROHMAN</h1>
+                <p class="role">// CREATIVE_DEVELOPER</p>
+                <div class="sys-stats">
+                    <span class="stat-box">AGE: 24</span>
+                    <span class="stat-box">LOC: BANDUNG</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-container">
+            <div class="cyber-btn" onclick="openPanel('about-panel')">
+                <span class="btn-num">01</span> PROFILE
+            </div>
+            <div class="cyber-btn" onclick="openPanel('portfolio-panel')">
+                <span class="btn-num">02</span> ARCHIVE_PORTFOLIO
+            </div>
+        </div>
+    </div>
+
+    <div class="content-panel" id="about-panel">
+        <button class="close-btn" onclick="closePanels()">[ X ] CLOSE_PANEL</button>
+        <div class="panel-inner">
+            <h2>PROFILE</h2>
+            <div class="cyber-content">
+                <p>> STATUS: LOOKING FOR A JOB</p>
+                <p>> A Visual Communication Design graduate with a solid technical background in Software Engineering. This dual foundation enables me to bridge the gap between creative visual layouts and functional front-end implementation.
+My expertise spans UI/UX design, web development, graphic design, and AI-powered video content creation. I continuously leverage modern tools—including Generative AI—to optimize creative workflows and deliver engaging digital experiences.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-panel" id="portfolio-panel">
+        <button class="close-btn" onclick="closePanels()">[ X ] CLOSE_PANEL</button>
+        <div class="panel-inner portfolio-layout">
+            
+            <div class="category-sidebar">
+                <h3 class="sidebar-title">DIRECTORIES/</h3>
+                <button class="cat-btn active" onclick="switchCategory(event, 'cat-3d', 'theme-3d')">> 3D_MODELS</button>
+                <button class="cat-btn" onclick="switchCategory(event, 'cat-copy', 'theme-light')">> COPYWRITING</button> 
+                <button class="cat-btn" onclick="switchCategory(event, 'cat-feed', 'theme-cyber')">> FEED_IG</button>
+                <button class="cat-btn" onclick="switchCategory(event, 'cat-ilustrasi', 'theme-cyber')">> ILUSTRASI</button>
+                <button class="cat-btn" onclick="switchCategory(event, 'cat-logo', 'theme-light')">> LOGO</button>
+                <button class="cat-btn" onclick="switchCategory(event, 'cat-animation', 'theme-cyber')">> VIDEO_ANIMATION</button>
+                <button class="cat-btn" onclick="switchCategory(event, 'cat-aivideo', 'theme-cyber')">> AI_VIDEO</button>
+                <button class="cat-btn" onclick="switchCategory(event, 'cat-poster', 'theme-light')">> POSTER_EXHIBIT</button>
+                <button class="cat-btn" onclick="switchCategory(event, 'cat-uiux', 'theme-light')">> UI_UX_DESIGN</button>
+                <button class="cat-btn" onclick="switchCategory(event, 'cat-photo', 'theme-light')">> PHOTOGRAPHY</button>
+                <button class="cat-btn" onclick="switchCategory(event, 'cat-video', 'theme-cyber')">> VIDEO_EDITING</button>
+                <button class="cat-btn" onclick="switchCategory(event, 'cat-katalog', 'theme-light')">> KATALOG_LOOKBOOK</button>
+            </div>
+
+            <div class="category-content">
+                
+                <div class="gallery-grid active-grid" id="cat-3d">
+                    <div class="gallery-item"><img src="gambar/Kursi.png" alt="Kursi" loading="lazy" decoding="async"><div class="img-overlay">Kursi</div></div>
+                    <div class="gallery-item"><img src="gambar/Ini meja 1.png" alt="Meja 1" loading="lazy" decoding="async"><div class="img-overlay">Meja_Apple</div></div>
+                    <div class="gallery-item"><img src="gambar/Ini meja 2.png" alt="Meja 2" loading="lazy" decoding="async"><div class="img-overlay">Meja_Teh</div></div>
+                    <div class="gallery-item"><img src="gambar/Ini meja 3.png" alt="Meja 3" loading="lazy" decoding="async"><div class="img-overlay">Meja_Makan</div></div>
+                    <div class="gallery-item"><img src="gambar/Bed.jpg" alt="Bed" loading="lazy" decoding="async"><div class="img-overlay">Bed_Monster</div></div>
+                    <div class="gallery-item"><img src="gambar/Angel Devil.png" alt="Angel Devil" loading="lazy" decoding="async"><div class="img-overlay">Angel_Devil_Wings</div></div>
+                    <div class="gallery-item"><img src="gambar/Jalan.jpg" alt="Jalan" loading="lazy" decoding="async"><div class="img-overlay">Road_Prop</div></div>
+                    <div class="gallery-item"><img src="gambar/Kucing.png" alt="Voxel Cat" loading="lazy" decoding="async"><div class="img-overlay">Voxel_Cat</div></div>
+                    <div class="gallery-item"><img src="gambar/Ghost.jpg" alt="Ghost" loading="lazy" decoding="async"><div class="img-overlay">Ghost_Hat</div></div>
+                    <div class="gallery-item"><img src="gambar/Hantu.png" alt="Hantu" loading="lazy" decoding="async"><div class="img-overlay">Hantu_Blue</div></div>
+                    <div class="gallery-item"><img src="gambar/Room.jpg" alt="Isometric Room" loading="lazy" decoding="async"><div class="img-overlay">Isometric_Room.blend</div></div>
+                    <div class="gallery-item"><img src="gambar/Rumah.png" alt="Rumah Modern" loading="lazy" decoding="async"><div class="img-overlay">Modern_House</div></div>
+                    <div class="gallery-item"><img src="gambar/Peta.png" alt="Peta Tahura" loading="lazy" decoding="async"><div class="img-overlay">Tahura_Map</div></div>
+                    <div class="gallery-item"><img src="gambar/Petunjuk.png" alt="Papan Petunjuk" loading="lazy" decoding="async"><div class="img-overlay">Signpost</div></div>
+                    <div class="gallery-item"><img src="gambar/Pohon .jpg" alt="Pohon Low Poly" loading="lazy" decoding="async"><div class="img-overlay">LowPoly_Tree</div></div>
+                    <div class="gallery-item"><img src="gambar/Shouta.png" alt="Kursi Kuning" loading="lazy" decoding="async"><div class="img-overlay">Shouta_Chair</div></div>
+                </div>
+
+                <div class="gallery-grid" id="cat-copy">
+                    <div class="copy-card">
+                        <div class="copy-client">CLIENT_DATA: [ MANIAC NAILS ]</div>
+                        <h3 class="copy-headline">Salon-Perfect Nails. 20 Minutes. Date Ready.</h3>
+                        <p class="copy-subhead">Fully booked salons? Traffic jams? Skip the stress. Don’t let bare nails ruin your vibe. Grab 15% OFF our Best Sellers—your drama-free solution for flawless nails.</p>
+                        <div class="copy-body-text">
+                            <p>Let’s be real, date night prep is chaotic enough. The outfit is set, the makeup is flawless, but then you look at your hands... dull, messy nails? Big no.</p>
+                            <p>But relax, no need for a frantic trip to the salon. Forget flimsy stickers. They are Real Semi-Cured Gel Polish. Once cured under the LED lamp, they harden perfectly into a glass-like finish—just like an expensive salon mani.</p>
+                            <ul>
+                                <li>✅ <strong>Smudge-Proof:</strong> No more ruining your polish while putting on your dress.</li>
+                                <li>✅ <strong>Hassle-Free:</strong> Apply it yourself while listening to a podcast—done in 20 mins.</li>
+                                <li>✅ <strong>Budget-Friendly:</strong> Luxe results without the salon price tag.</li>
+                            </ul>
+                            <p>Snag this 15% promo to secure the Best Seller shades loved by thousands of women. Slay the look, save your wallet.</p>
+                        </div>
+                        <div class="copy-cta-box">
+                            <div><strong>[CTA_ADS]</strong> "Get the Salon Look (15% OFF) - Shop Now 👇"</div>
+                            <div class="mt-2"><strong>[CTA_IG]</strong> "Your 20-min date night secret 💅✨"</div>
+                            <div class="mt-2"><strong>[CTA_WEB]</strong> "Get My Date-Night Look (15% OFF)"</div>
+                        </div>
+                    </div>
+
+                    <div class="copy-card">
+                        <div class="copy-client">CLIENT_DATA: [ THE BLESSED SEED ]</div>
+                        <h3 class="copy-headline">Strong Love Requires a Strong Body.</h3>
+                        <p class="copy-subhead">Skip the superficial gifts. Invest in the ultimate health defense for you and your partner.</p>
+                        <div class="copy-body-text">
+                            <p>Valentine’s Day is often filled with sweet gestures that fade quickly. But we believe the purest form of love is actually protection—the deep desire to keep your loved ones strong and their immunity unbreakable.</p>
+                            <p>This is why The Blessed Seed Strong Oil exists: to set the gold standard for your body’s defense.</p>
+                            <p>With volatile oil levels far exceeding the market average, this variant is crafted for those who demand maximum potency. We won’t lie—the taste is intense and uncompromising. But that intensity is the proof of nature’s honesty, working hard to strengthen the heart and immune system from within.</p>
+                            <p><strong>Strong love requires a strong body.</strong></p>
+                            <p>To support your future health together, enjoy a Special 15% OFF our Strong Black Seed Oil. Give a gift that lasts far longer than chocolate.</p>
+                        </div>
+                        <div class="copy-cta-box">
+                            <div><strong>[CTA_ADS]</strong> "Get 15% OFF Strong Oil."</div>
+                            <div class="mt-2"><strong>[CTA_IG]</strong> "Love stronger. Live longer. Tap the link in bio to claim your 15% Valentine’s gift. 🌿"</div>
+                            <div class="mt-2"><strong>[CTA_WEB]</strong> "Shop the Strong Collection (15% OFF)"</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-grid" id="cat-feed">
+                    <div class="coverflow-wrapper">
+                        <button class="cf-btn prev-btn" onclick="moveCoverflow(-1)">&#10094;</button>
+                        
+                        <div class="coverflow-track" id="cf-track">
+                            <div class="cf-item"><img src="gambar/Bisnis Digital Tanpa Ribet! Cuma Sekali Bayar, Langsung Gas Produk dan Belajar Bareng Komunitas (Feed) (1).jpg" alt="Feed Agavi 1" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Bisnis Digital Tanpa Ribet! Cuma Sekali Bayar, Langsung Gas Produk dan Belajar Bareng Komunitas (Feed).jpg" alt="Feed Agavi 2" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Bisnis Digital Tanpa Ribet! Cuma Sekali Bayar, Langsung Gas Produk dan Belajar Bareng Komunitas (Highlight).jpg" alt="Highlight Agavi" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Feed IG Internal-01.jpg" alt="Internal 1" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Feed IG Internal-02.jpg" alt="Internal 2" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Feed IG Internal-03.jpg" alt="Internal 3" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Feed IG Internal-04.jpg" alt="Internal 4" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Feed IG Coffe-01.jpg" alt="Coffee 1" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Feed IG Coffe-02.jpg" alt="Coffee 2" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Feed IG Coffe-03.jpg" alt="Coffee 3" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Design (1).jpg" alt="Design Post" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/1.jpg" alt="Feed 1" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/2.jpg" alt="Feed 2" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Quotes Of the Day.jpg" alt="Quotes" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Salinan Carousel-01.jpg" alt="Kecelakaan KAI Carousel 1" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Salinan Carousel-02.jpg" alt="Kecelakaan KAI Carousel 2" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Salinan Carousel-03.jpg" alt="Kecelakaan KAI Carousel 3" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Salinan Carousel-04.jpg" alt="Kecelakaan KAI Carousel 4" loading="lazy" decoding="async"></div>
+                            <div class="cf-item"><img src="gambar/Salinan Carousel-05.jpg" alt="Kecelakaan KAI Carousel 5" loading="lazy" decoding="async"></div>
+                        </div>
+
+                        <button class="cf-btn next-btn" onclick="moveCoverflow(1)">&#10095;</button>
+                    </div>
+                </div>
+
+                <div class="gallery-grid" id="cat-ilustrasi">
+                    <div class="gallery-item"><img src="gambar/Wallpaper.jpg" alt="U.A Highschool" loading="lazy" decoding="async"><div class="img-overlay">HERO_ACADEMIA.jpg</div></div>
+                    <div class="gallery-item"><img src="gambar/cover book_Artboard 2_Artboard 2.jpg" alt="P5 Joker Alternative" loading="lazy" decoding="async"><div class="img-overlay">P5_JOKER_ALT.jpg</div></div>
+                    <div class="gallery-item"><img src="gambar/cover book-01.jpg" alt="P5 Joker" loading="lazy" decoding="async"><div class="img-overlay">P5_JOKER.jpg</div></div>
+                    <div class="gallery-item"><img src="gambar/Illustration Movie-01.jpg" alt="Batman VS Punisher" loading="lazy" decoding="async"><div class="img-overlay">B_VS_P.jpg</div></div>
+                    <div class="gallery-item"><img src="gambar/Buku-01.jpg" alt="Little Story" loading="lazy" decoding="async"><div class="img-overlay">LITTLE_STORY.jpg</div></div>
+                    <div class="gallery-item"><img src="gambar/Dilatation-01.jpg" alt="Furina Typography" loading="lazy" decoding="async"><div class="img-overlay">FURINA_TYPO.eps</div></div>
+                    <div class="gallery-item"><img src="gambar/Radial-01.jpg" alt="Neuvillette Typography" loading="lazy" decoding="async"><div class="img-overlay">NEUVILLETTE_TYPO.eps</div></div>
+                    <div class="gallery-item"><img src="gambar/Surintendante Chevalmarin Plushie-01.png" alt="Chevalmarin" loading="lazy" decoding="async"><div class="img-overlay">CHEVALMARIN.png</div></div>
+                    <div class="gallery-item"><img src="gambar/Yaoyao Pet (2).png" alt="Yaoyao Pet" loading="lazy" decoding="async"><div class="img-overlay">YAOYAO_PET.png</div></div>
+                    <div class="gallery-item"><img src="gambar/Foxy-01.png" alt="Foxy Logo" loading="lazy" decoding="async"><div class="img-overlay">FOXY_LOGO.png</div></div>
+                    <div class="gallery-item"><img src="gambar/8064968.jpg" alt="Multiplicity" loading="lazy" decoding="async"><div class="img-overlay">MULTIPLICITY.jpg</div></div>
+                    <div class="gallery-item"><img src="gambar/Top piew.jpg" alt="Top View Map" loading="lazy" decoding="async"><div class="img-overlay">CITY_MAP.png</div></div>
+                    <div class="gallery-item"><img src="gambar/Illustration-01-01.jpg" alt="Ramen Uniform" loading="lazy" decoding="async"><div class="img-overlay">RAMEN_UNIFORM.png</div></div>
+                    <div class="gallery-item"><img src="gambar/chocolate-01.png" alt="Chocolate" loading="lazy" decoding="async"><div class="img-overlay">CHOCO_BAR.png</div></div>
+                    <div class="gallery-item"><img src="gambar/Cilor-01.png" alt="Cilor" loading="lazy" decoding="async"><div class="img-overlay">CILOR.png</div></div>
+                    <div class="gallery-item"><img src="gambar/Soda.jpg" alt="Soda Can" loading="lazy" decoding="async"><div class="img-overlay">SODA_CAN.png</div></div>
+                    <div class="gallery-item"><img src="gambar/Obat-01.png" alt="Pills" loading="lazy" decoding="async"><div class="img-overlay">MEDICINE.png</div></div>
+                </div>
+
+                <div class="gallery-grid" id="cat-logo">
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Foxy-01.png" alt="Foxy Logo" loading="lazy" decoding="async">
+                        <div class="img-overlay">FOXY_LOGO.png</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Tabigor baru lagi.png" alt="Tabigor Tahu Goreng" loading="lazy" decoding="async">
+                        <div class="img-overlay">TABIGOR.jpg</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Bakmi tidak baru.png" alt="Bakmi Ceria" loading="lazy" decoding="async">
+                        <div class="img-overlay">BAKMI_CERIA.jpg</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Bang logo 1.png" alt="GE IT Logo" loading="lazy" decoding="async">
+                        <div class="img-overlay">GE_IT_LOGO.png</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Logo bang.png" alt="GE IT Logo Variants" loading="lazy" decoding="async">
+                        <div class="img-overlay">GE_IT_VARIANTS.jpg</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Photograph.jpg" alt="Photogaps Camera" loading="lazy" decoding="async">
+                        <div class="img-overlay">PHOTOGAPS.jpg</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Logo Game Baru-01.png" alt="Game Shield Purple" loading="lazy" decoding="async">
+                        <div class="img-overlay">GAME_SHIELD_V1.png</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Logo Game-01-01.png" alt="Game Shield Yellow" loading="lazy" decoding="async">
+                        <div class="img-overlay">GAME_SHIELD_V2.jpg</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Illustrasi-01.jpg" alt="Gundam RX-78" loading="lazy" decoding="async">
+                        <div class="img-overlay">GUNDAM_RX78.jpg</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Lebah-01.jpg" alt="Bee Logo" loading="lazy" decoding="async">
+                        <div class="img-overlay">BEE_LOGO.jpg</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/R logo-01.jpg" alt="R Star Logo" loading="lazy" decoding="async">
+                        <div class="img-overlay">R_STAR_LOGO.jpg</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Trash Chan-01.png" alt="Trash Chan 1" loading="lazy" decoding="async">
+                        <div class="img-overlay">TRASH_CHAN_V1.png</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Trash Chan 2-01.png" alt="Trash Chan 2" loading="lazy" decoding="async">
+                        <div class="img-overlay">TRASH_CHAN_V2.png</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="logo-scanner"></div>
+                        <img src="gambar/Illustrasi-02.jpg" alt="Podcast Mic Logo" loading="lazy" decoding="async">
+                        <div class="img-overlay">MIC_PODCAST.jpg</div>
+                    </div>
+                </div>
+
+                <div class="gallery-grid" id="cat-animation">
+                    <div class="video-card">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/Arnanda Faturrohman_75214029_Tugas 5.mp4" type="video/mp4">
+                        </video>
+                        <div class="vid-status">▶ PLAYING: TUGAS_5.mp4</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/75214029_Arnanda Faturrohman_Tugas 2.mp4" type="video/mp4">
+                        </video>
+                        <div class="vid-status">▶ PLAYING: TUGAS_2.mp4</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/75214029_Arnanda Faturrohman_Tugas 1.mp4" type="video/mp4">
+                        </video>
+                        <div class="vid-status">▶ PLAYING: TUGAS_1.mp4</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/Comp 2.mp4" type="video/mp4">
+                        </video>
+                        <div class="vid-status">▶ PLAYING: COMP_2.mp4</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/75214029_Arnanda Faturrohman_3D Head.mp4" type="video/mp4">
+                        </video>
+                        <div class="vid-status">▶ PLAYING: 3D_HEAD.mp4</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/Arnanda Faturrohman_75214029.mp4" type="video/mp4">
+                        </video>
+                        <div class="vid-status">▶ PLAYING: ARNANDA_ANIM.mp4</div>
+                    </div>
+                </div>
+
+                <div class="gallery-grid" id="cat-photo">
+                    <div class="gallery-item"><img src="gambar/Putih belakang sweatpats.png" loading="lazy" decoding="async"><div class="img-overlay">SWEATPANTS_WHITE_BACK.png</div></div>
+                    <div class="gallery-item"><img src="gambar/misty jorts.png" loading="lazy" decoding="async"><div class="img-overlay">JORTS_MISTY.png</div></div>
+                    <div class="gallery-item"><img src="gambar/hitam depan jorts.png" loading="lazy" decoding="async"><div class="img-overlay">JORTS_BLACK_FRONT.png</div></div>
+                    <div class="gallery-item"><img src="gambar/hitam belakang jorts.png" loading="lazy" decoding="async"><div class="img-overlay">JORTS_BLACK_BACK.png</div></div>
+                    <div class="gallery-item"><img src="gambar/coklat jorts.png" loading="lazy" decoding="async"><div class="img-overlay">JORTS_BROWN.png</div></div>
+                    <div class="gallery-item"><img src="gambar/coklat depan sweatpats.png" loading="lazy" decoding="async"><div class="img-overlay">SWEATPANTS_BROWN_FRONT.png</div></div>
+                    <div class="gallery-item"><img src="gambar/coklat belakang sweatpats.png" loading="lazy" decoding="async"><div class="img-overlay">SWEATPANTS_BROWN_BACK.png</div></div>
+                    <div class="gallery-item"><img src="gambar/misty depan sweatpats.png" loading="lazy" decoding="async"><div class="img-overlay">SWEATPANTS_MISTY_FRONT.png</div></div>
+                    <div class="gallery-item"><img src="gambar/misty samping sweatpats.png" loading="lazy" decoding="async"><div class="img-overlay">SWEATPANTS_MISTY_SIDE.png</div></div>
+                    <div class="gallery-item"><img src="gambar/misty belakang sweatpats.png" loading="lazy" decoding="async"><div class="img-overlay">SWEATPANTS_MISTY_BACK.png</div></div>
+                    <div class="gallery-item"><img src="gambar/Abu tua depan sweatpats.png" loading="lazy" decoding="async"><div class="img-overlay">SWEATPANTS_DARK_GREY_FRONT.png</div></div>
+                    <div class="gallery-item"><img src="gambar/Abu tua belakang sweatpats.png" loading="lazy" decoding="async"><div class="img-overlay">SWEATPANTS_DARK_GREY_BACK.png</div></div>
+                    <div class="gallery-item"><img src="gambar/Putih depan sweatpats.png" loading="lazy" decoding="async"><div class="img-overlay">SWEATPANTS_WHITE_FRONT.png</div></div>
+                    <div class="gallery-item"><img src="gambar/Hitam depan sweatpats.png" loading="lazy" decoding="async"><div class="img-overlay">SWEATPANTS_BLACK_FRONT.png</div></div>
+                    <div class="gallery-item"><img src="gambar/Hitam belakang sweatpats.png" loading="lazy" decoding="async"><div class="img-overlay">SWEATPANTS_BLACK_BACK.png</div></div>
+                </div>
+
+                <div class="gallery-grid" id="cat-aivideo">
+                    <div class="ai-video-card">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/WhatsApp Video 2026-07-02 at 14.25.08 (1).mp4" type="video/mp4">
+                        </video>
+                        <div class="vid-status">▶ AI_GEN_01.mp4</div>
+                    </div>
+                    <div class="ai-video-card">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/(SEGER WARAS) 1 JUL ARNANDA SC 67 P1 REMAKE KONTEN 2.mp4" type="video/mp4">
+                        </video>
+                        <div class="vid-status">▶ AI_GEN_02.mp4</div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     TAB : POSTER EXHIBIT (OPTIMIZED & CLEANED)
+                     ======================================================== -->
+                <div class="gallery-grid" id="cat-poster">
+                    
+                    <div class="poster-card" onclick="openLightbox('gambar/Ig.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/Ig.jpg" alt="Taman Gesit Feed Instagram Ad" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">TAMAN GESIT FEED AD</h4>
+                            <div class="poster-meta">
+                                <span>SOCIAL_MEDIA_AD</span>
+                                <span>[ 1:1_SQUARE ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poster-card" onclick="openLightbox('gambar/Poster.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/Poster.jpg" alt="Taman Gesit Flyer RTH Bandung" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">TAMAN GESIT FLYER</h4>
+                            <div class="poster-meta">
+                                <span>PUBLIC_SPACE_PROMO</span>
+                                <span>[ A3_PRINT ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poster-card" onclick="openLightbox('gambar/Bi-Fold Brochure Kopi Kapal Api-01.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/Bi-Fold Brochure Kopi Kapal Api-01.jpg" alt="Brochure Kopi Kapal Api Page 1 Promo" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">KAPAL API PROMO BROCHURE</h4>
+                            <div class="poster-meta">
+                                <span>BI-FOLD_PRINT</span>
+                                <span>[ PAGE_01 ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poster-card" onclick="openLightbox('gambar/Poster Kajian.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/Poster Kajian.jpg" alt="Poster Kajian Tafsir Al-Qur'an Masjid Raya Bandung" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">KAJIAN TAFSIR AL-QUR'AN</h4>
+                            <div class="poster-meta">
+                                <span>ISLAMIC_EVENT</span>
+                                <span>[ 4:5_VERTICAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poster-card" onclick="openLightbox('gambar/Poster-01.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/Poster-01.jpg" alt="Maniac Nails Commercial Promotional Poster" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">MANIAC NAILS PROMO</h4>
+                            <div class="poster-meta">
+                                <span>BEAUTY_COMMERCIAL</span>
+                                <span>[ 4:5_VERTICAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poster-card" onclick="openLightbox('gambar/Poster ig.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/Poster ig.jpg" alt="Bakmi Ceria Diskon 50% Instagram Promo" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">BAKMI CERIA IG PROMO</h4>
+                            <div class="poster-meta">
+                                <span>F&B_SOCIAL_AD</span>
+                                <span>[ 1:1_SQUARE ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poster-card" onclick="openLightbox('gambar/Poster A3.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/Poster A3.jpg" alt="Bakmi Ceria Spesial Bakmi Ayam A3 Print" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">SPESIAL BAKMI AYAM</h4>
+                            <div class="poster-meta">
+                                <span>RESTAURANT_FLYER</span>
+                                <span>[ A3_PRINT ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poster-card" onclick="openLightbox('gambar/Menu.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/Menu.jpg" alt="Bakmi Ceria Full Restaurant Menu" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">BAKMI CERIA MENU LIST</h4>
+                            <div class="poster-meta">
+                                <span>EDITORIAL_MENU</span>
+                                <span>[ A4_VERTICAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poster-card" onclick="openLightbox('gambar/pizza hut.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/pizza hut.jpg" alt="Infografis Sejarah dan Fakta Unik Pizza Hut" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">PIZZA HUT INFOGRAPHIC</h4>
+                            <div class="poster-meta">
+                                <span>VISUAL_INFO_DECK</span>
+                                <span>[ A3_VERTICAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poster-card" onclick="openLightbox('gambar/Vogue-01.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/Vogue-01.jpg" alt="Vogue Magazine Cover Design" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">VOGUE COVER CONCEPT</h4>
+                            <div class="poster-meta">
+                                <span>EDITORIAL_DESIGN</span>
+                                <span>[ A4_VERTICAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poster-card" onclick="openLightbox('gambar/Ramen.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/Ramen.jpg" alt="Japanese Ramen Promotional Flyer" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">JAPANESE RAMEN FLYER</h4>
+                            <div class="poster-meta">
+                                <span>F&B_MARKETING</span>
+                                <span>[ A4_VERTICAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poster-card" onclick="openLightbox('gambar/Flyer.jpg', false)">
+                        <div class="poster-frame">
+                            <img src="gambar/Flyer.jpg" alt="Promotional Event Flyer" loading="lazy" decoding="async">
+                        </div>
+                        <div class="poster-info">
+                            <h4 class="poster-title">PROMOTIONAL FLYER</h4>
+                            <div class="poster-meta">
+                                <span>COMMERCIAL_FLYER</span>
+                                <span>[ A4_VERTICAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- TAB: UI / UX DESIGN -->
+                <div class="gallery-grid" id="cat-uiux">
+                    <div class="uiux-card">
+                        <div class="uiux-badge">// FINAL_PROJECT : LIVE_WEB_PLATFORM</div>
+                        <div class="uiux-content">
+                            <h3 class="uiux-title">LANGGAM JAIPONG</h3>
+                            <p class="uiux-subtitle">Digital Preservation & Cultural Interactive Web</p>
+                            <p class="uiux-desc">Perancangan antarmuka platform web interaktif untuk menjaga denyut nadi dan regenerasi seni tari tradisional Jaipong Jawa Barat. Mencakup edukasi sejarah, filosofi gerakan, busana, hingga sistem informasi Sanggar Amarta.</p>
+                            <div class="uiux-tags">
+                                <span>#Cultural_Preservation</span>
+                                <span>#Interactive_UI</span>
+                                <span>#Web_Development</span>
+                                <span>#Audio_Player_UI</span>
+                            </div>
+                            <div class="uiux-actions">
+                                <a href="https://langgam-jaipong.vercel.app/" target="_blank" class="uiux-btn btn-live">[ 🌐 ] LAUNCH_LIVE_WEB ↗</a>
+                                <button class="uiux-btn btn-preview" onclick="openLightbox('gambar/screencapture-langgam-jaipong-vercel-app-2026-07-16-09_30_02.png', false)">[ 🏠 ] VIEW_HOMEPAGE</button>
+                            </div>
+                            <div class="uiux-subactions">
+                                <span class="sub-label">> EXPLORE_PLATFORM_PAGES:</span>
+                                <div class="chip-grid">
+                                    <button class="chip-btn" onclick="openLightbox('gambar/screencapture-langgam-jaipong-vercel-app-page-sejarah-html-2026-07-16-09_30_30.jpg', false)">SEJARAH</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/screencapture-langgam-jaipong-vercel-app-page-filosofi-html-2026-07-16-09_30_41.jpg', false)">FILOSOFI_GERAK</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/screencapture-langgam-jaipong-vercel-app-page-kostum-html-2026-07-16-09_31_01.jpg', false)">BUSANA_RIAS</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/screencapture-langgam-jaipong-vercel-app-page-musik-html-2026-07-16-09_30_51.jpg', false)">AUDIO_IRAMA</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/screencapture-langgam-jaipong-vercel-app-page-sanggar-visi-html-2026-07-16-09_44_10.jpg', false)">VISI_MISI</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/screencapture-langgam-jaipong-vercel-app-page-sanggar-sejarah-sanggar-html-2026-07-16-09_44_24.jpg', false)">TIMELINE_SANGGAR</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/screencapture-langgam-jaipong-vercel-app-page-sanggar-tim-html-2026-07-16-09_44_37.jpg', false)">TIM_PELATIH</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/screencapture-langgam-jaipong-vercel-app-page-sanggar-jadwal-html-2026-07-16-09_44_52.jpg', false)">JADWAL_KELAS</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/screencapture-langgam-jaipong-vercel-app-page-sanggar-galeri-html-2026-07-16-09_45_00.jpg', false)">GALERI_PRESTASI</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="uiux-card">
+                        <div class="uiux-badge">// GAME_INTERFACE : COMPLETE_SYSTEM</div>
+                        <div class="uiux-content">
+                            <h3 class="uiux-title">CHRONICLES OF ELYSIUM</h3>
+                            <p class="uiux-subtitle">Sci-Fi Anime HUD, Role Stats & Navigation Flow</p>
+                            <p class="uiux-desc">Eksplorasi perancangan sistem antarmuka game komplit bergaya Cyberpunk/Anime. Mencakup alur autentikasi, dasbor utama, menu pemilihan karakter, hingga statistik winrate 6 kelas Hero berbeda.</p>
+                            <div class="uiux-tags">
+                                <span>#Game_UI</span>
+                                <span>#SciFi_HUD</span>
+                                <span>#Character_System</span>
+                                <span>#Menu_Navigation</span>
+                            </div>
+                            <div class="uiux-actions">
+                                <button class="uiux-btn btn-live" onclick="openLightbox('gambar/All In-01.jpg', false)">[ 🎮 ] VIEW_ALL_SCREENS</button>
+                                <button class="uiux-btn btn-preview" onclick="openLightbox('gambar/Main menu-01.jpg', false)">[ 🏠 ] MAIN_MENU_HUD</button>
+                            </div>
+                            <div class="uiux-subactions">
+                                <span class="sub-label">> EXPLORE_SCREENS:</span>
+                                <div class="chip-grid">
+                                    <button class="chip-btn" onclick="openLightbox('gambar/LOGIN-01.jpg', false)">LOGIN</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/REGISTER-01.jpg', false)">REGISTER</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/Menu Characters-01.jpg', false)">CHAR_SELECT</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/Profile-01.jpg', false)">PROFILE</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/Status-01.jpg', false)">STATUS_RANK</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/Necromancer-01.jpg', false)">NECROMANCER</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/Marksman-01.jpg', false)">MARKSMAN</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/Mage-01.jpg', false)">MAGE</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/Healer-01.jpg', false)">HEALER</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/Support-01.jpg', false)">SUPPORT</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/Fighter-01.jpg', false)">FIGHTER</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="uiux-card">
+                        <div class="uiux-badge">// MOBILE_APP : ECO_SERVICE_PLATFORM</div>
+                        <div class="uiux-content">
+                            <h3 class="uiux-title">SAVE THE WORLD</h3>
+                            <p class="uiux-subtitle">Trash Delivery & Eco-Service Mobile Interface</p>
+                            <p class="uiux-desc">Perancangan UI/UX aplikasi mobile bertema lingkungan (Save The World) untuk layanan pengelolaan dan antar-jemput sampah. Menggunakan pendekatan Clean Green UI yang fokus pada kemudahan alur navigasi, pelacakan rute, dan manajemen saldo pengguna.</p>
+                            <div class="uiux-tags">
+                                <span>#SaveTheWorld</span>
+                                <span>#Eco_Service</span>
+                                <span>#Clean_UI</span>
+                                <span>#Mobile_App</span>
+                            </div>
+                            <div class="uiux-actions">
+                                <button class="uiux-btn btn-live" onclick="openLightbox('gambar/Main-01.jpg', false)">[ 📱 ] VIEW_DASHBOARD</button>
+                                <button class="uiux-btn btn-preview" onclick="openLightbox('gambar/Login trash [Recovered]-01.jpg', false)">[ 🔑 ] LOGIN_SCREEN</button>
+                            </div>
+                            <div class="uiux-subactions">
+                                <span class="sub-label">> EXPLORE_ONBOARDING:</span>
+                                <div class="chip-grid">
+                                    <button class="chip-btn" onclick="openLightbox('gambar/One [Recovered]-01.jpg', false)">01_SAVE_WORLD</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/Two-01.jpg', false)">02_EARN_MONEY</button>
+                                    <button class="chip-btn" onclick="openLightbox('gambar/Three [Recovered]-01.jpg', false)">03_FIND_US</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB: VIDEO EDITING SHOWCASE -->
+                <div class="gallery-grid" id="cat-video">
+                    <div class="video-edit-card">
+                        <div class="vedit-header">
+                            <span>// 16:9 : CINEMATIC_B-ROLL</span>
+                            <span>DUR: 00:45</span>
+                        </div>
+                        <div class="vedit-preview">
+                            <video loop muted playsinline onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;">
+                                <source src="video/Taman Gesit.mp4" type="video/mp4">
+                            </video>
+                            <div class="vedit-play-overlay">▶ PLAY_CYBER_PLAYER</div>
+                        </div>
+                        <div class="uiux-content">
+                            <h3 class="uiux-title">TAMAN GESIT TEASER</h3>
+                            <p class="uiux-subtitle">Kinetic Typography & Nature B-Roll</p>
+                            <p class="uiux-desc">Video promosi ruang terbuka hijau dengan transisi dinamis dan integrasi teks komersial yang menyatu dengan elemen alam.</p>
+                            <div class="uiux-tags">
+                                <span>#PremierePro</span>
+                                <span>#KineticTypo</span>
+                                <span>#ColorGrading</span>
+                            </div>
+                            <div class="uiux-actions">
+                                <button class="uiux-btn btn-live">[ ▶ ] WATCH_FULL_VIDEO</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-edit-card">
+                        <div class="vedit-header">
+                            <span>// 9:16 : VERTICAL_AD</span>
+                            <span>DUR: 00:30</span>
+                        </div>
+                        <div class="vedit-preview vertical-mode">
+                            <video loop muted playsinline onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;">
+                                <source src="video/Konten 1 Update.mp4" type="video/mp4">
+                            </video>
+                            <div class="vedit-play-overlay">▶ PLAY_CYBER_PLAYER</div>
+                        </div>
+                        <div class="uiux-content">
+                            <h3 class="uiux-title">BUMI TAUHID AD</h3>
+                            <p class="uiux-subtitle">High-Retention Reels & TikTok Promo</p>
+                            <p class="uiux-desc">Iklan vertikal tempo cepat dengan pembuka statistik pemikat (hook 72,25% buta huruf Al-Qur'an), subtitle warna dinamis, dan CTA produk.</p>
+                            <div class="uiux-tags">
+                                <span>#ShortForm</span>
+                                <span>#DynamicSubtitles</span>
+                                <span>#ProductAd</span>
+                            </div>
+                            <div class="uiux-actions">
+                                <button class="uiux-btn btn-live">[ ▶ ] WATCH_VERTICAL_AD</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-edit-card">
+                        <div class="vedit-header">
+                            <span>// 16:9 : MINI_DOCUMENTARY</span>
+                            <span>DUR: 14:10</span>
+                        </div>
+                        <div class="vedit-preview">
+                            <video loop muted playsinline onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;">
+                                <source src="video/#" type="video/mp4">
+                            </video>
+                            <div class="vedit-play-overlay">▶ PLAY_CYBER_PLAYER</div>
+                        </div>
+                        <div class="uiux-content">
+                            <h3 class="uiux-title">SENI TARI JAIPONGAN</h3>
+                            <p class="uiux-subtitle">Sanggar Amarta Documentary & Interview</p>
+                            <p class="uiux-desc">Struktur storytelling naratif mendalam bersama Pak Jaenal. Menggabungkan teknik intercut wawancara, b-roll latihan tari, dan filosofi kebudayaan.</p>
+                            <div class="uiux-tags">
+                                <span>#Documentary</span>
+                                <span>#Storytelling</span>
+                                <span>#AudioMixing</span>
+                            </div>
+                            <div class="uiux-actions">
+                                <a href="https://drive.google.com/file/d/1uFxr-R1U0RMb5R3tpQJEcAIrLVmwxS6W/view?usp=sharing" target="_blank" class="uiux-btn btn-live">[ ▶ ] WATCH_DOCUMENTARY ↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     TAB : KATALOG & LOOKBOOK (13 ITEMS + LAZY LOADING)
+                     ======================================================== -->
+                <div class="gallery-grid" id="cat-katalog">
+                    
+                    <div class="catalog-card" onclick="openLightbox('gambar/Katalog-01.jpg', false)">
+                        <div class="catalog-badge">
+                            <span>// BUMI_TAUHID</span>
+                            <span>[ COVER_EDITION ]</span>
+                        </div>
+                        <div class="catalog-frame">
+                            <img src="gambar/Katalog-01.jpg" alt="Katalog Bumi Tauhid Cover" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">KATALOG 2025/2026</h4>
+                            <p class="catalog-desc">Sampul utama katalog produk Al-Qur'an Duo Arabic Latin berdesain elegan untuk pemula.</p>
+                            <div class="catalog-meta">
+                                <span>PUBLISHING_DECK</span>
+                                <span>[ VERTIKAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/Catalog-02.jpg', false)">
+                        <div class="catalog-badge">
+                            <span>// BUMI_TAUHID</span>
+                            <span>[ PAGE_01 : INTRO ]</span>
+                        </div>
+                        <div class="catalog-frame">
+                            <img src="gambar/Catalog-02.jpg" alt="Al-Qur'an Hijaiyah Intro" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">AL-QUR'AN HIJAIYAH</h4>
+                            <p class="catalog-desc">Halaman pengenalan konsep belajar ramah pemula sebagai jembatan transisi dari Iqro ke Mushaf.</p>
+                            <div class="catalog-meta">
+                                <span>PRODUCT_STORY</span>
+                                <span>[ VERTIKAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/Catalog-03.jpg', false)">
+                        <div class="catalog-badge">
+                            <span>// BUMI_TAUHID</span>
+                            <span>[ PAGE_02 : USP ]</span>
+                        </div>
+                        <div class="catalog-frame">
+                            <img src="gambar/Catalog-03.jpg" alt="Keunikan Produk Al-Qur'an" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">KEUNIKAN PRODUK</h4>
+                            <p class="catalog-desc">Rincian 9 keunggulan fitur, mulai dari tajwid warna, transliterasi latin, hingga QR Code Murottal.</p>
+                            <div class="catalog-meta">
+                                <span>FEATURE_LIST</span>
+                                <span>[ VERTIKAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/Catalog-04.jpg', false)">
+                        <div class="catalog-badge">
+                            <span>// BUMI_TAUHID</span>
+                            <span>[ PAGE_03 : SPECS ]</span>
+                        </div>
+                        <div class="catalog-frame">
+                            <img src="gambar/Catalog-04.jpg" alt="Spesifikasi Produk Al-Qur'an" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">SPESIFIKASI FISIK</h4>
+                            <p class="catalog-desc">Daftar bagian isi produk (11 fitur desain/foto) beserta ukuran fisik, berat, varian warna, dan bahan kertas.</p>
+                            <div class="catalog-meta">
+                                <span>TECHNICAL_DATA</span>
+                                <span>[ VERTIKAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/Catalog-05.jpg', false)">
+                        <div class="catalog-badge">
+                            <span>// BUMI_TAUHID</span>
+                            <span>[ PAGE_04 : PROOF ]</span>
+                        </div>
+                        <div class="catalog-frame">
+                            <img src="gambar/Catalog-05.jpg" alt="Al-Qur'an Proof Point" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">PROOF & RESENSI</h4>
+                            <p class="catalog-desc">Menampilkan alasan mengapa (proof point) produk ini dirancang agar pembaca tidak takut salah lagi dalam melafalkan huruf hijaiyah.</p>
+                            <div class="catalog-meta">
+                                <span>PRODUCT_STORY</span>
+                                <span>[ VERTIKAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/Katalog-04.jpg', false)">
+                        <div class="catalog-badge">
+                            <span>// BUMI_TAUHID</span>
+                            <span>[ PAGE_05 : REVIEW ]</span>
+                        </div>
+                        <div class="catalog-frame">
+                            <img src="gambar/Katalog-04.jpg" alt="Resensi Buku Al-Qur'an" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">RESENSI BUKU</h4>
+                            <p class="catalog-desc">Ulasan komprehensif fitur 2 tipe huruf hijaiyah, tajwid warna, terjemahan per ayat, dan QR Code murottal Syaikh Sudais.</p>
+                            <div class="catalog-meta">
+                                <span>EDITORIAL_REVIEW</span>
+                                <span>[ VERTIKAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/Katalog-02.jpg', false)">
+                        <div class="catalog-badge">
+                            <span>// BUMI_TAUHID</span>
+                            <span>[ LANDSCAPE_SPREAD ]</span>
+                        </div>
+                        <div class="catalog-frame landscape-mode">
+                            <img src="gambar/Katalog-02.jpg" alt="Katalog Landscape Al-Qur'an" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">HIJAIYAH & USP SPREAD</h4>
+                            <p class="catalog-desc">Layout katalog presentasi horizontal yang menggabungkan introduksi transisi Iqro dengan keunikan fitur.</p>
+                            <div class="catalog-meta">
+                                <span>PRESENTATION_DECK</span>
+                                <span>[ LANDSCAPE ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/Katalog-03.jpg', false)">
+                        <div class="catalog-badge">
+                            <span>// BUMI_TAUHID</span>
+                            <span>[ LANDSCAPE_SPREAD ]</span>
+                        </div>
+                        <div class="catalog-frame landscape-mode">
+                            <img src="gambar/Katalog-03.jpg" alt="Katalog Landscape Spesifikasi" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">PROOF & SPECS SPREAD</h4>
+                            <p class="catalog-desc">Layout horizontal menampilkan alasan mengapa (proof point), pernyataan resensi, serta spesifikasi fisik produk.</p>
+                            <div class="catalog-meta">
+                                <span>PRESENTATION_DECK</span>
+                                <span>[ LANDSCAPE ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/1.png', false)">
+                        <div class="catalog-badge">
+                            <span>// APPAREL_CATALOG</span>
+                            <span>[ KOLEKSI_01-03 ]</span>
+                        </div>
+                        <div class="catalog-frame">
+                            <img src="gambar/1.png" alt="Katalog Jorts Pendek" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">JORTS PENDEK SERIES</h4>
+                            <p class="catalog-desc">Lookbook fashion minimalis menonjolkan cutting dan fit dari Hitam, Coklat, dan Misty Jorts Pendek.</p>
+                            <div class="catalog-meta">
+                                <span>STREETWEAR_DECK</span>
+                                <span>[ VERTIKAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/2.png', false)">
+                        <div class="catalog-badge">
+                            <span>// APPAREL_CATALOG</span>
+                            <span>[ KOLEKSI_04-07 ]</span>
+                        </div>
+                        <div class="catalog-frame">
+                            <img src="gambar/2.png" alt="Katalog Sweatpants Premium" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">BAHAN PREMIUM SERIES</h4>
+                            <p class="catalog-desc">Katalog pakaian menonjolkan siluet celana panjang Sweatpants varian Misty, Coklat, Putih, dan Hitam.</p>
+                            <div class="catalog-meta">
+                                <span>STREETWEAR_DECK</span>
+                                <span>[ VERTIKAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/1(1).png', false)">
+                        <div class="catalog-badge">
+                            <span>// APPAREL_CATALOG</span>
+                            <span>[ DOODLE_ACCENT ]</span>
+                        </div>
+                        <div class="catalog-frame">
+                            <img src="gambar/1(1).png" alt="Katalog Jorts Doodle Accent" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">JORTS DOODLE ED.</h4>
+                            <p class="catalog-desc">Edisi katalog alternatif dengan sentuhan aksen coretan visual (doodle arrows) untuk kesan kreatif anak muda.</p>
+                            <div class="catalog-meta">
+                                <span>CREATIVE_LOOKBOOK</span>
+                                <span>[ VERTIKAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/2(1).png', false)">
+                        <div class="catalog-badge">
+                            <span>// APPAREL_CATALOG</span>
+                            <span>[ DOODLE_ACCENT ]</span>
+                        </div>
+                        <div class="catalog-frame">
+                            <img src="gambar/2(1).png" alt="Katalog Sweatpants Doodle Accent" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">SWEATPANTS DOODLE ED.</h4>
+                            <p class="catalog-desc">Edisi katalog alternatif celana sweatpants dengan penambahan elemen ilustrasi panah dan bintang dekoratif.</p>
+                            <div class="catalog-meta">
+                                <span>CREATIVE_LOOKBOOK</span>
+                                <span>[ VERTIKAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-card" onclick="openLightbox('gambar/Netral Minimalis Furnitur Katalog.png', false)">
+                        <div class="catalog-badge">
+                            <span>// APPAREL_CATALOG</span>
+                            <span>[ FULL_LINEUP_3X3 ]</span>
+                        </div>
+                        <div class="catalog-frame">
+                            <img src="gambar/Netral Minimalis Furnitur Katalog.png" alt="Katalog Kompilasi Lengkap Jorts dan Sweatpants" loading="lazy" decoding="async">
+                        </div>
+                        <div class="catalog-info">
+                            <h4 class="catalog-title">FULL COLLECTION 3X3</h4>
+                            <p class="catalog-desc">Kompilasi katalog grid menyeluruh menampilkan seluruh lini produk Jorts Pendek dan Sweatpants dari berbagai sudut pandang.</p>
+                            <div class="catalog-meta">
+                                <span>COMPLETE_LOOKBOOK</span>
+                                <span>[ VERTIKAL ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div> 
+        </div> 
+    </div> 
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">[ X ] CLOSE_MEDIA</span>
+        <img src="" alt="Enlarged" class="lightbox-img" id="lightbox-img">
+        
+        <div class="cyber-player-wrapper" id="cyber-player-wrapper">
+            <video src="" class="lightbox-video" id="lightbox-video" autoplay></video>
+            
+            <div class="cyber-controls">
+                <button class="ctrl-btn" id="btn-play-pause">[ || ] PAUSE</button>
+                <div class="progress-bar-container" id="progress-container">
+                    <div class="progress-bar-fill" id="progress-fill"></div>
+                </div>
+                <span class="ctrl-time" id="time-display">00:00 / 00:00</span>
+                <button class="ctrl-btn" id="btn-mute">[ 🔊 ] MUTE</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
